@@ -1,13 +1,13 @@
 ###-----PBS Directives Start-----###
-
+#set parameters based on what is needed for your run
 #PBS -V
 #PBS -S /bin/bash
-#PBS -N krona_Sewage
+#PBS -N krona_run
 #PBS -l nodes=1:ppn=12
 #PBS -l walltime=05:00:00
 #PBS -l mem=16GB
 #PBS -q s48
-#PBS -M user@nyu.edu
+#PBS -M $USER@nyu.edu
 #PBS -m bea
 #PBS -e localhost:${PBS_O_WORKDIR}/${PBS_JOBNAME}.e${PBS_JOBID}
 #PBS -o localhost:${PBS_O_WORKDIR}/${PBS_JOBNAME}.o${PBS_JOBID}
@@ -16,7 +16,7 @@
 
 ###-----Statements to be Executed-----###
 
-cd /scratch/USER/krakenmethod/
+cd /scratch/$USER/krakenmethod/
 
 module load kronatools/2.5
 
